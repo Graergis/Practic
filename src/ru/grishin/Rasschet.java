@@ -3,7 +3,7 @@ package ru.grishin;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 
 public class Rasschet {
 
@@ -21,12 +21,12 @@ public class Rasschet {
         }
         long difference = date2.getTime() - date1.getTime();
         long days = difference / (24 * 60 * 60 * 1000);
-        System.out.println("Прошло дней после поступления - " + days);
         DAY = (int) days;
         return;
     }
 
-    public Rasschet(int programma, double ball) {
+    public Rasschet(int programma, double ball, String curriculum) {
+        System.out.println("Прошло дней после поступления - " + DAY);
         int ost;
         int progress = DAY * 8;
         if (progress > programma) {
@@ -43,12 +43,11 @@ public class Rasschet {
             int d = ost % 8;
             if (d > 0) {
                 int d2 = ost / 8;
-                System.out.println("До окончания обучения по программе - " + (d2 + 1) + " дней (" + ost + " ч.)");
+                System.out.println("До окончания обучения по программе " + curriculum + " " + (d2 + 1) + " дней (" + ost + " ч.)");
             } else {
                 int d3 = ost / 8;
                 System.out.println("До окончания обучения по программе - " + d3 + " дней (" + ost + " ч.)");
             }
         }
     }
-
 }

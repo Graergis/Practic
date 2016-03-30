@@ -9,23 +9,23 @@ public class PavelLaptev {
     final static List<Integer> pl = new ArrayList<>();
     static double ball;
 
-    public PavelLaptev() {
-        int progr = 0;
-        //curriculum J2EE Developer
+    public PavelLaptev(boolean bool) {
+        int programma = 0;
+        String curriculum = "J2EE Developer";
         String startDate = "22.03.2016";
-        progr += 24; //Version control systems
-        progr += 16; //HTTP
-        progr += 64; //HTML, CSS, JS basics
-        progr += 40; //java basics
-        progr += 32; //XML, JSON and parsers
-        progr += 24; //Build tools Maven\ Gradle. Cl overview
-        progr += 24; //Unit testing in Java
-        progr += 24; //Design Principles (SOLID, YAGNI)
-        progr += 40; //Advanced Java
-        progr += 24; //Java WEB basics. Servlet container
-        progr += 16; //Java WEB Services and REST clients
-        progr += 32; //Databases basics
-        progr += 24; //JDBC
+        programma += 24; //Version control systems
+        programma += 16; //HTTP
+        programma += 64; //HTML, CSS, JS basics
+        programma += 40; //java basics
+        programma += 32; //XML, JSON and parsers
+        programma += 24; //Build tools Maven\ Gradle. Cl overview
+        programma += 24; //Unit testing in Java
+        programma += 24; //Design Principles (SOLID, YAGNI)
+        programma += 40; //Advanced Java
+        programma += 24; //Java WEB basics. Servlet container
+        programma += 16; //Java WEB Services and REST clients
+        programma += 32; //Databases basics
+        programma += 24; //JDBC
 
         Rasschet rass = new Rasschet(startDate);
 
@@ -37,6 +37,9 @@ public class PavelLaptev {
                 ball += b;
             }
         }
-        Rasschet ras = new Rasschet(progr, ball);
+        Main.SORT.put(ball+0.007, "Pavel Laptev");
+        if(bool) {
+            Rasschet ras = new Rasschet(programma, ball, curriculum);
+        }
     }
 }

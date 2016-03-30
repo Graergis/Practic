@@ -9,23 +9,23 @@ public class GrishinSergei {
     final static List<Integer> sg = new ArrayList<>();
     static double ball;
 
-    public GrishinSergei() {
-        int progress = 0;
-        //curriculum J2EE Developer
+    public GrishinSergei(boolean bool) {
+        int programma = 0;
+        String curriculum = "J2EE Developer";
         String startDate = "22.03.2016";
-        progress += 24; //Version control systems
-        progress += 16; //HTTP
-        progress += 64; //HTML, CSS, JS basics
-        progress += 40; //java basics
-        progress += 32; //XML, JSON and parsers
-        progress += 24; //Build tools Maven\ Gradle. Cl overview
-        progress += 24; //Unit testing in Java
-        progress += 24; //Design Principles (SOLID, YAGNI)
-        progress += 40; //Advanced Java
-        progress += 24; //Java WEB basics. Servlet container
-        progress += 16; //Java WEB Services and REST clients
-        progress += 32; //Databases basics
-        progress += 24; //JDBC
+        programma += 24; //Version control systems
+        programma += 16; //HTTP
+        programma += 64; //HTML, CSS, JS basics
+        programma += 40; //java basics
+        programma += 32; //XML, JSON and parsers
+        programma += 24; //Build tools Maven\ Gradle. Cl overview
+        programma += 24; //Unit testing in Java
+        programma += 24; //Design Principles (SOLID, YAGNI)
+        programma += 40; //Advanced Java
+        programma += 24; //Java WEB basics. Servlet container
+        programma += 16; //Java WEB Services and REST clients
+        programma += 32; //Databases basics
+        programma += 24; //JDBC
 
         Rasschet rass = new Rasschet(startDate);
 
@@ -37,6 +37,9 @@ public class GrishinSergei {
                 ball += b;
             }
         }
-        Rasschet ras = new Rasschet(progress, ball);
+        Main.SORT.put(ball+0.001, "Sergey Grishin");
+        if(bool) {
+            Rasschet ras = new Rasschet(programma, ball, curriculum);
+        }
     }
 }
