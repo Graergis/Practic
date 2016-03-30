@@ -6,8 +6,10 @@ import java.util.*;
 
 public class Main {
 
-    public static List<String> STUDENTS = new ArrayList<>();
-    public static Map<Double, String> SORT = new HashMap<>();
+    private static List<String> STUDENTS = new ArrayList<>();
+    static Map<Double, String> SORT = new HashMap<>();
+    static Map<Double, String> SORTTIME = new HashMap<>();
+    static Map<Double, String> PROGRESS = new HashMap<>();
 
     public static void main(String[] args) {
         STUDENTS.add("Sergey Grishin");
@@ -28,70 +30,109 @@ public class Main {
         SergeyGilfanov sgi2 = new SergeyGilfanov(bool);
         SergeyPiyanzin sp2 = new SergeyPiyanzin(bool);
         VladislavDanilov vd2 = new VladislavDanilov(bool);
-        System.out.println("Справка по студентам - help. Выхода - exit");
-        System.out.println("Сортировка по среднему баллу - sortirovka");
+        System.out.println("Справка - help");
         while (true) {
             Scanner scan = new Scanner(System.in);
             System.out.print(">");
             String line = scan.nextLine();
-            if (!line.equals("help")) {
-                if (line.equals("Sergey Grishin")) {
-                    GrishinSergei gs = new GrishinSergei(bool2);
-                    continue;
+            if (line.equals("Sergey Grishin") || line.equals("Grishin Sergey")) {
+                GrishinSergei gs = new GrishinSergei(bool2);
+                continue;
+            }
+            if (line.equals("Maksim Konshin") || line.equals("Konshin Maksim")) {
+                MaksimKonshin mk = new MaksimKonshin(bool2);
+                continue;
+            }
+            if (line.equals("Pavel Laptev") || line.equals("Laptev Pavel")) {
+                PavelLaptev pl = new PavelLaptev(bool2);
+                continue;
+            }
+            if (line.equals("Roman Kuznetsov") || line.equals("Kuznetsov Roman")) {
+                RomanKuznetsov rk = new RomanKuznetsov(bool2);
+                continue;
+            }
+            if (line.equals("Sergey Gilfanov") || line.equals("Gilfanov Sergey")) {
+                SergeyGilfanov sgi = new SergeyGilfanov(bool2);
+                continue;
+            }
+            if (line.equals("Sergey Piyanzin") || line.equals("Piyanzin Sergey")) {
+                SergeyPiyanzin sp = new SergeyPiyanzin(bool2);
+                continue;
+            }
+            if (line.equals("Vladislav Danilov") || line.equals("Danilov Vladislav")) {
+                VladislavDanilov vd = new VladislavDanilov(bool2);
+                continue;
+            }
+            if (line.equals("Kalinin Ivan") || line.equals("Ivan Kalinin")) {
+                KalininIvan ki = new KalininIvan(bool2);
+                continue;
+            }
+            if (line.equals("exit")) {
+                return;
+            }
+            if (line.equals("ball")) {
+                SORT = new TreeMap<>(SORT);
+                Map<Double, String> n = new TreeMap<>();
+                n.putAll(SORT);
+                for (Map.Entry<Double, String> pair : n.entrySet()) {
+                    Double key = pair.getKey();
+                    double srBall = key / Rasschet.DAY;
+                    double srBall2 = new BigDecimal(srBall).setScale(1, RoundingMode.HALF_UP).doubleValue();
+                    String value = pair.getValue();
+                    System.out.println("Средний балл - " + srBall2 + ". Студент - " + value);
                 }
-                if (line.equals("Maksim Konshin")) {
-                    MaksimKonshin mk = new MaksimKonshin(bool2);
-                    continue;
-                }
-                if (line.equals("Pavel Laptev")) {
-                    PavelLaptev pl = new PavelLaptev(bool2);
-                    continue;
-                }
-                if (line.equals("Roman Kuznetsov")) {
-                    RomanKuznetsov rk = new RomanKuznetsov(bool2);
-                    continue;
-                }
-                if (line.equals("Sergey Gilfanov")) {
-                    SergeyGilfanov sgi = new SergeyGilfanov(bool2);
-                    continue;
-                }
-                if (line.equals("Sergey Piyanzin")) {
-                    SergeyPiyanzin sp = new SergeyPiyanzin(bool2);
-                    continue;
-                }
-                if (line.equals("Vladislav Danilov")) {
-                    VladislavDanilov vd = new VladislavDanilov(bool2);
-                    continue;
-                }
-                if (line.equals("Kalinin Ivan")) {
-                    KalininIvan ki = new KalininIvan(bool2);
-                    continue;
-                }
-                if (line.equals("exit")) {
-                    return;
-                }
-                if (line.equals("sortirovka")) {
-                    SORT = new TreeMap<>(SORT);
-                    Map <Double, String> n = new TreeMap<>();
-                    n.putAll(SORT);
-                    for(Map.Entry<Double, String> pair : n.entrySet()){
-                        Double key = pair.getKey();
-                        double srBall = key / Rasschet.DAY;
-                        double srBall2 = new BigDecimal(srBall).setScale(1, RoundingMode.HALF_UP).doubleValue();
-                        String value = pair.getValue();
-                        System.out.println("Средний балл - " + srBall2 + ". Имя студента - " + value);
+                continue;
+            }
+            if (line.equals("progress")) {
+                PROGRESS = new TreeMap<>(PROGRESS);
+                Map<Double, String> n = new TreeMap<>();
+                n.putAll(PROGRESS);
+                for (Map.Entry<Double, String> pair : n.entrySet()) {
+                    String value = pair.getValue();
+                    double key = pair.getKey();
+                    if (key >= 4.0) {
+                        System.out.println(value + " - Есть вероятность, что не будет отчислен");
+                    } else {
+                        System.out.println(value + " - Не пройдет");
                     }
-                } else {
-                    System.out.println("Студент не найден.");
-
                 }
-            } else if (line.equals("help")) {
+                continue;
+            }
+            if (line.equals("help")) {
+                System.out.println("students - список студентов.");
+                System.out.println("Список команд:");
+                System.out.println("exit - выход.");
+                System.out.println("Сортировки: ");
+                System.out.println("progress - по успеваемости");
+                System.out.println("ball - по среднему баллу");
+                System.out.println("time - по времени до конца обучения");
+                continue;
+            }
+            if (line.equals("students")) {
                 System.out.println("Список студентов:");
                 System.out.println("-----------------");
                 for (int j = 0; j < STUDENTS.size(); j++) {
                     System.out.println(STUDENTS.get(j));
                 }
+                continue;
             }
+            if (line.equals("time")) {
+                SORTTIME = new TreeMap<>(SORTTIME);
+                Map<Double, String> v = new TreeMap<>();
+                v.putAll(SORTTIME);
+                for (Map.Entry<Double, String> pair2 : v.entrySet()) {
+                    Double key = pair2.getKey();
+                    int time = (int) new BigDecimal(key).setScale(0, RoundingMode.HALF_UP).doubleValue();
+                    String value = pair2.getValue();
+                    if (time < 0) {
+                        System.out.println(value + " - закончил обучение");
+                    } else {
+                        System.out.println(value + " - до конца обучения " + time + " д.");
+                    }
+                }
+                continue;
+            }
+            System.out.println("Студент не найден/Неверная команда.");
         }
     }
 }

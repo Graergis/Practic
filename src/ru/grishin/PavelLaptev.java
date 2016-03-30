@@ -11,11 +11,9 @@ public class PavelLaptev {
 
     public PavelLaptev(boolean bool) {
         int programma = 0;
+        String name = "Pavel Laptev";
         String curriculum = "J2EE Developer";
         String startDate = "22.03.2016";
-        programma += 24; //Version control systems
-        programma += 16; //HTTP
-        programma += 64; //HTML, CSS, JS basics
         programma += 40; //java basics
         programma += 32; //XML, JSON and parsers
         programma += 24; //Build tools Maven\ Gradle. Cl overview
@@ -27,7 +25,7 @@ public class PavelLaptev {
         programma += 32; //Databases basics
         programma += 24; //JDBC
 
-        Rasschet rass = new Rasschet(startDate);
+        Rasschet rass = new Rasschet(startDate, programma, name);
 
         Random r = new Random(System.currentTimeMillis());
         if (pl.size() < Rasschet.DAY) {
@@ -37,8 +35,10 @@ public class PavelLaptev {
                 ball += b;
             }
         }
-        Main.SORT.put(ball+0.007, "Pavel Laptev");
-        if(bool) {
+        MaxBall maxBal = new MaxBall(programma, ball);
+        Main.PROGRESS.put(MaxBall.MAXBALL, name);
+        Main.SORT.put(ball + 0.007, name);
+        if (bool) {
             Rasschet ras = new Rasschet(programma, ball, curriculum);
         }
     }
