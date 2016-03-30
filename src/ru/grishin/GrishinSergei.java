@@ -9,7 +9,7 @@ public class GrishinSergei {
     final static List<Integer> sg = new ArrayList<>();
     static double ball;
 
-    public GrishinSergei(boolean bool)  {
+    public GrishinSergei(boolean bool) {
         int programma = 0;
         String name = "Sergey Grishin";
         String curriculum = "J2EE Developer";

@@ -92,6 +92,8 @@ public class Main {
                     double key = pair.getKey();
                     if (key >= 4.0) {
                         System.out.println(value + " - Есть вероятность, что не будет отчислен");
+                    } else if (key < 0) {
+                        System.out.println(value + " - Закончил обучение");
                     } else {
                         System.out.println(value + " - Не пройдет");
                     }
