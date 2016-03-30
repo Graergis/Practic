@@ -30,9 +30,10 @@ public class SergeyPiyanzin {
                 ball += b;
             }
         }
+        double ball2 = ball / Rasschet.DAY;
         MaxBall maxBal = new MaxBall(programma, ball);
-        Main.PROGRESS.put(MaxBall.MAXBALL, name);
-        Main.SORT.put(ball + 0.004, name);
+        Main.PROGRESS.put(MaxBall.MAXBALL + 0.004 , name);
+        Main.SORT.put(ball2 + 0.004, name);
         if (bool) {
             Rasschet ras = new Rasschet(programma, ball, curriculum);
         }

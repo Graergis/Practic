@@ -49,9 +49,11 @@ public class Rasschet {
         ost = programma - progress;
         int d = ost % 8;
         if (progress > programma) {
-            System.out.println("Уже отучился");
+            System.out.println("Закончил обучение");
             if (srBall2 >= 4.0) {
-                System.out.println("Средний балл " + srBall2 + " Был принят на работу.");
+                System.out.println("Со средним баллом " + srBall2 + " был принят на работу");
+            } else {
+                System.out.println("Увы и ах. Средний балл был всего " + srBall2);
             }
         } else {
             if (d > 0) {

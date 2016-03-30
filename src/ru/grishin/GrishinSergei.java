@@ -13,7 +13,7 @@ public class GrishinSergei {
         int programma = 0;
         String name = "Sergey Grishin";
         String curriculum = "J2EE Developer";
-        String startDate = "22.03.2016";
+        String startDate = "12.03.2016";
         programma += 24; //Version control systems
         programma += 16; //HTTP
         programma += 40; //java basics
@@ -34,9 +34,10 @@ public class GrishinSergei {
                 ball += b;
             }
         }
+        double ball2 = ball / Rasschet.DAY;
         MaxBall maxBal = new MaxBall(programma, ball);
-        Main.PROGRESS.put(MaxBall.MAXBALL, name);
-        Main.SORT.put(ball + 0.001, name);
+        Main.PROGRESS.put(MaxBall.MAXBALL + 0.001 , name);
+        Main.SORT.put(ball2 + 0.001, name);
         if (bool) {
             Rasschet ras = new Rasschet(programma, ball, curriculum);
         }

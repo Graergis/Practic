@@ -37,9 +37,10 @@ public class VladislavDanilov {
                 ball += b;
             }
         }
+        double ball2 = ball / Rasschet.DAY;
         MaxBall maxBal = new MaxBall(programma, ball);
-        Main.PROGRESS.put(MaxBall.MAXBALL, name);
-        Main.SORT.put(ball + 0.003, name);
+        Main.PROGRESS.put(MaxBall.MAXBALL + 0.003 , name);
+        Main.SORT.put(ball2 + 0.003, name);
         if (bool) {
             Rasschet ras = new Rasschet(programma, ball, curriculum);
         }

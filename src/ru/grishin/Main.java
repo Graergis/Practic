@@ -76,8 +76,7 @@ public class Main {
                 n.putAll(SORT);
                 for (Map.Entry<Double, String> pair : n.entrySet()) {
                     Double key = pair.getKey();
-                    double srBall = key / Rasschet.DAY;
-                    double srBall2 = new BigDecimal(srBall).setScale(1, RoundingMode.HALF_UP).doubleValue();
+                    double srBall2 = new BigDecimal(key).setScale(1, RoundingMode.HALF_UP).doubleValue();
                     String value = pair.getValue();
                     System.out.println("Средний балл - " + srBall2 + ". Студент - " + value);
                 }
